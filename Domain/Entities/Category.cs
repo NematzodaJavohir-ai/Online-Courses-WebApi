@@ -5,8 +5,8 @@ namespace Domain.Entities;
 
 public class Category
 {
-         [Key]
-        public Guid Id { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(100)]

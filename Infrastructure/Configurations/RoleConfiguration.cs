@@ -28,8 +28,8 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
             new Role 
             { 
                 Id = 2, 
-                Name = "Mentor", 
-                Description = "Teacher/Mentor with course management access" 
+                Name = "Instructor", 
+                Description = "Intstructor with course management access" 
             },
             new Role 
             { 
