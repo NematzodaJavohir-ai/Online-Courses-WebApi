@@ -1,0 +1,6 @@
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+appsettings.json
+appsettings.Development.json
