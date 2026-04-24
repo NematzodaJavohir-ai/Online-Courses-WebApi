@@ -36,5 +36,21 @@ public class UserController(IUserService service):BaseController
     {
        return HandleResult(await service.UpdateUserAsync(id,dto,ct));
     }
+
+    [HttpPut("change-avatar/{id}")]
+    public async Task<IActionResult> UploadImageAsync([FromRoute] int id, IFormFile file)
+    {
+        var result = await service.UpdateStudentProfileAsync(id, file);
+
+        return !result.IsSuccess ? HandleResult(result) : Ok(result);
+    }
+
+    [HttpDelete("delete-avatar/{id}")]
+    public async Task<IActionResult> DeleteImageAsync([FromRoute] int id)
+    {
+        var result = await service.DeleteStudentProfileAsync(id);
+
+        return !result.IsSuccess ? HandleResult(result) : Ok(result);
+    }
     
 }

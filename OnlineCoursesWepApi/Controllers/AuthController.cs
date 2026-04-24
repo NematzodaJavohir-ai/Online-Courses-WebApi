@@ -1,6 +1,7 @@
 using Application.Dtos.AuthDto;
 using Application.Dtos.UserDto;
 using Application.Interfaces.Services;
+using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Controllers;
@@ -38,6 +39,11 @@ public class AuthController(IAuthService service):BaseController
     public async Task<IActionResult>ResetPassword(ResetPasswordDto dto,CancellationToken ct)
     {
         return HandleResult(await service.ResetPasswordAsync(dto,ct));
+    }
+    [HttpPatch("{id:int}/role")]
+    public async Task<IActionResult> AssignRoleAsync(int id, [FromBody] UserRole role)
+    {
+        return HandleResult(await service.AssignRoleAsync(id, role));
     }
 
     
